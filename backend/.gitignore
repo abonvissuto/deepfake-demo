@@ -24,6 +24,7 @@ uploads/*
 *.sln
 *.sw?
 .env*
+!.env.template
 # Logs
 logs
 *.log
