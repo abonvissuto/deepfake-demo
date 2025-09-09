@@ -1,16 +1,21 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/handler.js",
+  "type": "module",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc"
+    "build:be": "tsc",
+    "build:be-uploads": "node -e \"require('fs').mkdirSync('dist/uploads', { recursive: true });\"",
+    "build:fe": "node -e \"const fs=require('fs'); const path=require('path'); const src=path.join('..','frontend','dist'); const dest=path.join('dist','frontend'); fs.cpSync(src,dest,{recursive:true});\"",
+    "build": "npm run build:be && npm run build:be-uploads && npm run build:fe"
   },
   "dependencies": {
     "@realitydefender/realitydefender": "^0.1.15",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "multer": "^2.0.2",
+    "serverless-http": "^4.0.0",
     "uuid": "^12.0.0"
   },
   "devDependencies": {

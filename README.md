@@ -22,16 +22,18 @@ The basic flow is the following:
 1. Build the React frontend
     ```bash
     cd frontend
+    npm ci
     npm run build
     ```
 2. Create an API key and paste inside the file [.env.template](/backend/.env.template)
 3. Rename the file _.env.template_ to _.env_
-2. Run the backend server
+4. Run the backend server
     ```bash
     cd backend
+    npm ci
     npm run dev
     ```
-3. Connect to the api
+5. Connect to the api
     http://localhost:3000
 
 # Screenshots

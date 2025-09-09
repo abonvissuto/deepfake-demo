@@ -1,12 +1,12 @@
 import { Router } from "express";
 import multer from "multer";
-import { UUIDTypes, v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 const router = Router();
 
 import crypto from "crypto";
 import path from "path";
 
-import { realityDefender } from "./lib/realityDefender";
+import { realityDefender } from "./lib/realityDefender.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
