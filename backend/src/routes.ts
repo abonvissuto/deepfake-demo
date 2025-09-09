@@ -66,9 +66,8 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 router.get("/events/:jobId", async (req, res) => {
   const { jobId } = req.params;
 
-  if (!jobs[jobId])
-    res.end()
-  
+  if (!jobs[jobId]) res.end();
+
   // Standard SSE headers
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
@@ -94,14 +93,14 @@ async function performAnalysis(jobId: string) {
     const { requestId } = await realityDefender.upload({
       filePath: jobs[jobId].path,
     });
-    console.log(`Request forwarded with id > ${requestId}`)
+    console.log(`Request forwarded with id > ${requestId}`);
 
     jobs[jobId].status = "RUNNING";
     signal(jobId);
 
     //Await results using the requestId
     const result = await realityDefender.getResult(requestId);
-    console.log(`Got result from API > ${JSON.stringify(result)}`)
+    console.log(`Got result from API > ${JSON.stringify(result)}`);
 
     jobs[jobId].status = "DONE";
     jobs[jobId].result = {

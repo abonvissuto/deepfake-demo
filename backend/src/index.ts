@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import uploadRouter from "./routes";
-import "dotenv/config"
+import "dotenv/config";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

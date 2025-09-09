@@ -1,4 +1,4 @@
-import "dotenv/config"
+import "dotenv/config";
 import { RealityDefender } from "@realitydefender/realitydefender";
 
 export const realityDefender = new RealityDefender({
